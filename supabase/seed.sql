@@ -198,9 +198,10 @@ begin
           actual := round(target * ratio * factors[p], 2);
         end if;
 
-        -- Skip the June (current period) submission for one Marketing employee
-        -- to demonstrate a < 100% submission rate.
-        if periods[p] = '2026-06' and dept_names[d] = 'Marketing' and k = 2 then
+        -- Skip the June (current period) submission for the Operations
+        -- department-level KPI to demonstrate a < 100% submission rate
+        -- (Operations is already critical, so this doesn't change its band).
+        if periods[p] = '2026-06' and dept_names[d] = 'Operations' and k = 3 then
           continue;
         end if;
 
