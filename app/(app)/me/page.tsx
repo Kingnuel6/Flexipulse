@@ -7,6 +7,8 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { StatusBadge } from "@/components/ui/Badge";
 
+export const dynamic = "force-dynamic";
+
 export default async function MePage() {
   const user = await getCurrentUser();
   const supabase = await createClient();

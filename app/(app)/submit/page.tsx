@@ -4,6 +4,8 @@ import { getUserKPIs } from "@/lib/queries";
 import { currentPeriod, formatPeriod } from "@/lib/utils";
 import { KPIForm } from "@/components/forms/KPIForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function SubmitPage() {
   const user = await getCurrentUser();
   const supabase = await createClient();

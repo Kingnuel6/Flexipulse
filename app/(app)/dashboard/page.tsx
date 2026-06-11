@@ -4,6 +4,8 @@ import { getDashboardSummary, getTrendData } from "@/lib/queries";
 import { currentPeriod } from "@/lib/utils";
 import { DashboardClient } from "./DashboardClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const user = await getCurrentUser();
   requireRole(user, ["admin"]);

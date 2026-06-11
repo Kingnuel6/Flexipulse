@@ -24,6 +24,11 @@ export async function createClient() {
           }
         },
       },
+      global: {
+        // Next.js caches fetch() by default; submissions must be visible
+        // to other dashboards immediately, so always bypass that cache.
+        fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+      },
     }
   );
 }

@@ -7,6 +7,8 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import { StatusBadge } from "@/components/ui/Badge";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function DepartmentPage({
   searchParams,
 }: {
