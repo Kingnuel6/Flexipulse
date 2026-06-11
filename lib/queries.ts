@@ -219,10 +219,10 @@ export async function getDepartmentMembers(
   const allSubmissions = (submissions ?? []) as Submission[];
 
   return allMembers.map((member) => {
-    // KPIs assigned directly to this member, plus department-level KPIs (assigned_to null)
-    // are considered "submitted" if a submission exists from this member.
+    // KPIs assigned directly to this member are this member's responsibility.
+    // Department-level KPIs (assigned_to null) are the manager's responsibility only.
     const memberKpis = allKpis.filter(
-      (k) => k.assigned_to === member.id || k.assigned_to === null
+      (k) => k.assigned_to === member.id || (k.assigned_to === null && member.role === "manager")
     );
     const submitted =
       memberKpis.length === 0
